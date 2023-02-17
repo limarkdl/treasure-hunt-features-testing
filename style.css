@@ -1,0 +1,181 @@
+* {
+    margin: 0 0;
+}
+
+
+:root {
+    --animationSpeed: 1s;
+}
+
+body {
+    background-image: url("./media/background.png");
+    background-size: contain;
+    background-position: center;
+    max-height: 100vh;
+    font-family: 'Pirata One', cursive;
+}
+
+
+div::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+}
+div::-webkit-scrollbar-track {
+    background: orange;        /* цвет дорожки */
+}
+div::-webkit-scrollbar-thumb {
+    background-color: blue;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 3px solid orange;  /* padding вокруг плашки */
+}
+
+.sprite {
+    max-height: 10vh;
+}
+
+
+
+#top_stone {
+    background-image: url("./media/stone_sprite180.png");
+    height: 15vh;
+    background-repeat: repeat-x;
+    background-size: contain;
+
+}
+
+#bottom_stone {
+    background-image: url("./media/stone_sprite.png");
+    height: 15vh;
+    background-repeat: repeat-x;
+    background-size: contain;
+    position: absolute;
+    bottom: -60px;
+    width: 100vw;
+}
+
+.wrapper {
+    height: 100%;
+
+}
+
+@media only screen and (max-width: 1400px) {
+    #top_stone {
+        height:20vh;
+        background-size: cover;
+    }
+    body {
+        background-size: cover;
+    }
+    #bottom_stone {
+        height: 20vh;
+        background-size: cover;
+    }
+    .controlPanelElement {
+        font-size: xxx-large;
+        height: 5vh !important;
+    }
+    .controlPanel {
+        padding: 20px;
+    }
+    .infoIcon {
+        max-height: 5vh !important;
+    }
+    .menuIcon {
+        max-height: 5vh !important;
+    }
+
+}
+
+.dialogue {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    font-size: x-large;
+}
+
+.dialogueElement.questionBox {
+    min-height: 10vh;
+    opacity: 100;
+    transition: var(--animationSpeed);
+}
+
+.dialogueElement.answerBox {
+    opacity: 100;
+    transition: var(--animationSpeed)
+}
+
+#questionText {
+    max-height: 20vh;
+    overflow: auto;
+}
+
+.mascotBox {
+    background-color: rgba(255,255,255,0) !important;
+    border: none !important;
+    height: 5vh;
+    opacity: 100;
+    transition: var(--animationSpeed)
+}
+
+.questionBox,.answerBox {
+
+    margin-left: 50px;
+}
+
+.mascotIcon {
+    height: 10vh;
+}
+
+.dialogueInsider {
+    padding: 10px;
+}
+
+.dialogueElement {
+    background-color: #ffffff;
+    min-height: 10vh;
+    border: 2px solid #000000;
+    border-radius: 20px;
+
+}
+
+
+
+.menuIcon {
+    background: url("./media/menu-button-of-three-horizontal-lines.png");
+    background-size: cover;
+    max-height: 3vh;
+    aspect-ratio: 1 / 1;
+}
+
+.infoIcon {
+    background: url("./media/info (1).png");
+    background-size: cover;
+    max-height: 3vh;
+    aspect-ratio: 1 / 1;
+}
+
+
+.controlPanelElement {
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+
+.controlPanelContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5vw;
+}
+
+.controlPanel {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px;
+    justify-content: space-between;
+}
