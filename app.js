@@ -2,6 +2,12 @@ let URL = "https://codecyprus.org/th/api";
 let questionType = {"BOOLEAN": "radio", "INTEGER": "number", "TEXT": "text", "NUMERIC": "number", "MCQ": "radio"};
 var geotimer;
 
+function nextQuestion() {
+    document.getElementsByClassName('questionBox')[0].style.opacity = '100%';
+    document.getElementsByClassName('mascotBox')[0].style.opacity = '100%';
+    setTimeout(function (){document.getElementsByClassName('answerBox')[0].style.opacity = '100%';},1000);
+}
+
 function listHunts() {
     let main = document.getElementById("main");
     let list = document.createElement("ol");

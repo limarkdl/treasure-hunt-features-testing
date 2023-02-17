@@ -97,12 +97,12 @@ div::-webkit-scrollbar-thumb {
 
 .dialogueElement.questionBox {
     min-height: 10vh;
-    opacity: 100;
+    opacity: 0;
     transition: var(--animationSpeed);
 }
 
 .dialogueElement.answerBox {
-    opacity: 100;
+    opacity: 0;
     transition: var(--animationSpeed)
 }
 
@@ -115,7 +115,7 @@ div::-webkit-scrollbar-thumb {
     background-color: rgba(255,255,255,0) !important;
     border: none !important;
     height: 5vh;
-    opacity: 100;
+    opacity: 0;
     transition: var(--animationSpeed)
 }
 
