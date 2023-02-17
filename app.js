@@ -8,6 +8,16 @@ function nextQuestion() {
     setTimeout(function (){document.getElementsByClassName('answerBox')[0].style.opacity = '100%';},1000);
 }
 
+function fullScreenToggle() {
+    let el = document.getElementsByClassName('wrapper')[0];
+    if (document.fullscreenElement) {
+        el.exitFullscreen();
+    } else {
+        el.requestFullscreen();
+    }
+
+}
+
 function listHunts() {
     let main = document.getElementById("main");
     let list = document.createElement("ol");
