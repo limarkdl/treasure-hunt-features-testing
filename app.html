@@ -18,8 +18,8 @@
             <div class="controlPanel">
                 <div class="controlPanelElement">SCORE:  0<div id="score"></div></div>
                 <div class="controlPanelElement"> 1 / 6</div>
-                <div class="controlPanelContainer"><div class="controlPanelElement infoIcon" onclick="nextQuestion()"></div>
-                    <div class="controlPanelElement menuIcon" onclick="fullScreenToggle()"></div>
+                <div class="controlPanelContainer"><div class="controlPanelElement infoIcon bt" onclick="nextQuestion()"></div>
+                    <a href="#openModal"><div class="controlPanelElement menuIcon bt"></div></a>
                 </div>
 
             </div>
@@ -29,11 +29,25 @@
             <div class="dialogueElement mascotBox"><img src="./media/parrotMascot.png" class="mascotIcon"></div>
             <div class="dialogueElement answerBox"><div class="dialogueInsider"><div>userName: </div><div id="answerBox"><input type="text"></div></div></div>
         </div>
-        <div id="bottom_stone"></div>
+
     </div>
 
 </main>
 <footer></footer>
+<div id="openModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">MENU</h3>
+                <a href="#close" title="Close" class="close">X</a>
+
+            </div>
+            <div class="modal-body">
+                <div onclick="fullScreenToggle()">FULLSCREEN MODE</div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

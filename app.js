@@ -2,6 +2,21 @@ let URL = "https://codecyprus.org/th/api";
 let questionType = {"BOOLEAN": "radio", "INTEGER": "number", "TEXT": "text", "NUMERIC": "number", "MCQ": "radio"};
 var geotimer;
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    var scrollbar = document.body.clientWidth - window.innerWidth + 'px';
+    console.log(scrollbar);
+    document.querySelector('[href="#openModal"]').addEventListener('click', function () {
+        document.body.style.overflow = 'hidden';
+        document.querySelector('#openModal').style.marginLeft = scrollbar;
+    });
+    document.querySelector('[href="#close"]').addEventListener('click', function () {
+        document.body.style.overflow = 'visible';
+        document.querySelector('#openModal').style.marginLeft = '0px';
+    });
+});
+
+
 function nextQuestion() {
     document.getElementsByClassName('questionBox')[0].style.opacity = '100%';
     document.getElementsByClassName('mascotBox')[0].style.opacity = '100%';
@@ -9,7 +24,7 @@ function nextQuestion() {
 }
 
 function fullScreenToggle() {
-    let el = document.getElementsByClassName('wrapper')[0];
+    let el = document.body;
     if (document.fullscreenElement) {
         el.exitFullscreen();
     } else {
