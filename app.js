@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+
 function soundVolumeToggle() {
     if (backgroundMusic) {
         document.getElementById('soundIcon').src = 'soundOFFIcon.png';
@@ -27,10 +29,15 @@ function soundVolumeToggle() {
 
 }
 
-function nextQuestion() {
-    document.getElementsByClassName('questionBox')[0].style.opacity = '100%';
-    document.getElementsByClassName('mascotBox')[0].style.opacity = '100%';
-    setTimeout(function (){document.getElementsByClassName('answerBox')[0].style.opacity = '100%';},1000);
+function displayDialogue() {
+    document.getElementsByClassName('dialogue')[0].style.display = 'none';
+    document.getElementsByClassName('questionBox')[0].style.opacity = '0%';
+    document.getElementsByClassName('mascotBox')[0].style.opacity = '0%';
+    document.getElementsByClassName('answerBox')[0].style.opacity = '0%';
+    setTimeout(()=>{document.getElementsByClassName('dialogue')[0].style.display = 'flex';},500)
+    setTimeout(()=>{document.getElementsByClassName('questionBox')[0].style.opacity = '100%';
+        document.getElementsByClassName('mascotBox')[0].style.opacity = '100%';},1000)
+    setTimeout(function (){document.getElementsByClassName('answerBox')[0].style.opacity = '100%';},2000);
 }
 
 function fullScreenToggle() {
@@ -43,14 +50,17 @@ function fullScreenToggle() {
 
 }
 
+
+
 function listHunts() {
     let main = document.getElementById("main");
     let list = document.createElement("ol");
+    let text = document.createElement("p");
+    text.innerHTML = "Ho-ho, what treasure hunt you will choose?"
+    main.appendChild(text);
     main.appendChild(list);
 
-
-
-
+    displayDialogue();
     fetch(URL + "/list").then(response => response.json()).then(json => {
 
         for (let i = 0; i < json.treasureHunts.length; i++) {
@@ -59,6 +69,8 @@ function listHunts() {
             list.appendChild(entry);
         }
 
+        document.getElementById('answerBox').innerText = "Hmmm, let me see...";
+        document.getElementById('answerBox').style.opacity = "1";
     })
 
 }
@@ -69,12 +81,14 @@ function showLeaderboard(){
     main.innerHTML = "";
     //Stop geolocation
     clearInterval(geotimer);
-
+    let text = document.createElement("p");
+    text.innerText = "Great Job! Here is the leaderboard:"
     let list = document.createElement("ol");
+    main.appendChild(text);
     main.appendChild(list);
 
     let session = localStorage.getItem("session");
-
+    displayDialogue();
     fetch(URL + "/leaderboard?session=" + session + "&sorted").then(response => response.json()).then(json => {
 
         for (let i = 0; i < json.numOfPlayers; i++) {
@@ -83,14 +97,16 @@ function showLeaderboard(){
             list.appendChild(entry);
         }
 
+        document.getElementById('answerBox').innerText = 'Oh...';
     })
+
 
 }
 
 function registerPlayer(huntID) {
     //Clean page
     document.getElementById("main").innerHTML = "";
-
+    document.getElementById("main").innerHTML = "<p>What is your name?</p>";
     //Starting geolocation counter
     geotimer = setInterval(getLocation, 30000);
 
@@ -122,6 +138,7 @@ function displayCurrentQuestion() {
     document.getElementById("main").innerHTML = "";
 
     getScore();
+    displayDialogue();
     //Get question from server
     fetch(URL + "/question?session=" + session).then(response => response.json()).then(json => {
         console.log(json);
@@ -228,7 +245,8 @@ function displayInputHTML(inputObject, functionCall, functionParam = "") {
 
     let form = document.createElement("form");
     form.setAttribute("onsubmit", functionCall + "(\'" + functionParam + "\'); return false;");
-
+    let answerBox = document.getElementById('answerBox');
+    answerBox.innerHTML = "";
     if (inputObject.questionType === 'BOOLEAN') {
         form.innerHTML = "<input required type=\"radio\" class=\"playerInput\" name=\"playerInput\" value=\"true\">\n" +
                          "<label for=\"playerInput\">True</label>\n" +
@@ -260,7 +278,7 @@ function displayInputHTML(inputObject, functionCall, functionParam = "") {
     if(inputObject.canBeSkipped) {
         let skipButton = document.createElement("button");
         skipButton.innerText = "SKIP";
-        skipButton.setAttribute("onclick", "skipQuestion()");
+        skipButton.setAttribute("onclick", "letAnimationComplete(skipQuestion())");
         form.appendChild(skipButton);
     }
 
@@ -268,7 +286,7 @@ function displayInputHTML(inputObject, functionCall, functionParam = "") {
     submit.setAttribute("type", "submit");
     submit.setAttribute("id", "submitButton")
     document.getElementById("main").appendChild(form);
-
+    answerBox.appendChild(form);
     form.appendChild(submit);
-
+    document.getElementById("answerBox").style.opacity = "1";
 }

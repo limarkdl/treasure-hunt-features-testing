@@ -4,7 +4,8 @@
 
 
 :root {
-    --animationSpeed: 1s;
+    --animationSpeed: 2s;
+
 }
 
 body, .wrapper {
@@ -16,16 +17,16 @@ body, .wrapper {
 }
 
 
-div::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 12px;               /* ширина scrollbar */
 }
-div::-webkit-scrollbar-track {
-    background: orange;        /* цвет дорожки */
+::-webkit-scrollbar-track {
+    background: #ffffff;        /* цвет дорожки */
 }
-div::-webkit-scrollbar-thumb {
-    background-color: blue;    /* цвет плашки */
+::-webkit-scrollbar-thumb {
+    background-color: #000000;    /* цвет плашки */
     border-radius: 20px;       /* закругления плашки */
-    border: 3px solid orange;  /* padding вокруг плашки */
+    border: 3px solid #ffffff;  /* padding вокруг плашки */
 }
 
 .sprite {
@@ -120,8 +121,22 @@ body {
     min-height: 10vh;
     opacity: 0;
     transition: var(--animationSpeed);
+
+}
+#answerBox {
+    opacity: 0;
+    transition: 3s;
+
 }
 
+@keyframes answerAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 .dialogueElement.answerBox {
     opacity: 0;
     transition: var(--animationSpeed)
@@ -130,6 +145,14 @@ body {
 #questionText {
     max-height: 20vh;
     overflow: auto;
+}
+
+div#main ol:nth-of-type(1) {
+    overflow: auto;
+    max-height: 20vh;
+    background: #cdcdcd;
+    border-radius: 10px;
+
 }
 
 .mascotBox {
@@ -158,6 +181,14 @@ body {
 
 }
 
+button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+li {
+    padding: 5px;
+}
 
 
 .menuIcon {
