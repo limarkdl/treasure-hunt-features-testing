@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./favicon/favicon.ico">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,18 +18,20 @@
     <div class="wrapper">
         <div id="top_stone">
             <div class="controlPanel">
-                <div class="controlPanelElement">SCORE:  0<div id="score"></div></div>
-                <div class="controlPanelElement"> 1 / 6</div>
+                <div class="controlPanelElement">SCORE:  <div id="score"></div></div>
+                <div class="controlPanelElement bt" onclick="clearSessionBt()">ERASE SESSION</div>
                 <div class="controlPanelContainer"><div class="controlPanelElement infoIcon bt" onclick="nextQuestion()"></div>
                     <a href="#openModal"><div class="controlPanelElement menuIcon bt"></div></a>
                 </div>
 
             </div>
         </div>
+        <div class="progressBar">
+        </div>
         <div class="dialogue">
-            <div class="dialogueElement questionBox"><div class="dialogueInsider"><div>Michel: </div><div id="main"></div></div></div>
-            <div class="dialogueElement mascotBox"><img src="./media/parrotMascot.png" class="mascotIcon"></div>
-            <div class="dialogueElement answerBox"><div class="dialogueInsider"><div>userName: </div><div id="answerBox"></div></div></div>
+            <div class="dialogueElement questionBox"><div class="dialogueInsider"><div>Captain Featherbeak: </div><div id="main"></div></div></div>
+            <div class="dialogueElement mascotBox"><img src="./media/parrotMascot.png" class="mascotIcon" alt="Mascot"></div>
+            <div class="dialogueElement answerBox"><div class="dialogueInsider"><div id="playersName">Anonim: </div><div id="answerBox"></div></div></div>
         </div>
 
     </div>
@@ -43,14 +47,16 @@
 
             </div>
             <div class="modal-body">
-                <button onclick="fullScreenToggle()"><img src="fullscreenIcon.png"></button>
-                <button onclick="soundVolumeToggle()"><img id="soundIcon" src="soundONIcon.png"></button>
-                <button><img src="share.png"></button>
+                <button onclick="fullScreenToggle()"><img src="./media/fullscreenIcon.png" alt="Fullscreen mode"></button>
+                <button onclick="soundVolumeToggle()"><img id="soundIcon" src="./media/soundONIcon.png" alt="Sound on/off"></button>
+                <button><img src="./media/share.png" alt="Share"></button>
+                <button><img src="./media/QRIcon.png" alt="QR-Code"></button>
+                <button><img src="./media/scanner.png" alt="QR-Scan"></button>
             </div>
             <div class="version">
-            <p> TreasureHuntApp v.0.0.4</p>
+                <p> TreasureHuntApp v.0.0.4</p>
             </div>
-            </div>
+        </div>
     </div>
 </div>
 </body>

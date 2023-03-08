@@ -1,12 +1,14 @@
 * {
     margin: 0 0;
+    font-family: 'Pirata One';
 }
 
 
 :root {
-    --animationSpeed: 2s;
+    --animationSpeed: 1s;
 
 }
+
 
 body, .wrapper {
     background-image: url("./media/background.png");
@@ -70,9 +72,7 @@ body {
         background-size: cover;
         background-position: top;
     }
-    .controlPanelElement:hover {
-        background-color: orange;
-    }
+
 
 
     #bottom_stone {
@@ -101,6 +101,40 @@ body {
 
 }
 
+
+
+.progressBar {
+    max-width: 600px;
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    font-size: x-large;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 0 20px 0;
+}
+
+.progressBar img {
+    width: 8vw;
+    max-width: 80px;
+}
+
+
+.modal-body img {
+    height:100%;
+    width: 100%;
+}
+
+
+body, .wrapper {
+    background-image: url(./media/background.png);
+    background-size: contain;
+    background-position: center;
+    height: 100vh !important;
+    font-family: 'Pirata One';
+}
 .bt:hover {
     background-color: #a4a4a4 !important;
 }
@@ -115,6 +149,11 @@ body {
     font-size: x-large;
 }
 
+.dialogue button {
+    padding: 5px;
+    border-radius: 5px;
+}
+
 
 
 .dialogueElement.questionBox {
@@ -125,7 +164,7 @@ body {
 }
 #answerBox {
     opacity: 0;
-    transition: 3s;
+    transition: 1s;
 
 }
 
@@ -143,16 +182,16 @@ body {
 }
 
 #questionText {
-    max-height: 20vh;
+    max-height: 45vh;
     overflow: auto;
 }
 
 div#main ol:nth-of-type(1) {
     overflow: auto;
-    max-height: 20vh;
+    overflow-x: hidden;
+    max-height: 40vh;
     background: #cdcdcd;
     border-radius: 10px;
-
 }
 
 .mascotBox {
@@ -181,10 +220,7 @@ div#main ol:nth-of-type(1) {
 
 }
 
-button {
-    padding: 5px;
-    border-radius: 5px;
-}
+
 
 li {
     padding: 5px;
@@ -192,14 +228,14 @@ li {
 
 
 .menuIcon {
-    background: url("./media/menu-button-of-three-horizontal-lines.png");
+    background: url("./media/menuIcon.png");
     background-size: cover;
     max-height: 3vh;
     aspect-ratio: 1 / 1;
 }
 
 .infoIcon {
-    background: url("./media/info (1).png");
+    background: url("./media/infoIcon.png");
     background-size: cover;
     max-height: 3vh;
     aspect-ratio: 1 / 1;
@@ -214,6 +250,7 @@ li {
     display: flex;
     align-items: center;
     font-size: x-large;
+    border-radius: 15px;
 }
 
 .controlPanelContainer {
@@ -242,9 +279,9 @@ li {
     z-index: 1050;
     opacity: 0;
     /* по умолчанию модальное окно прозрачно */
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
     /* анимация перехода */
     pointer-events: none;
     /* элемент невидим для событий мыши */
@@ -289,6 +326,10 @@ li {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem;
     outline: 0;
+}
+
+.modal-content button {
+    border-radius: 15px;
 }
 
 @media (min-width: 768px) {
